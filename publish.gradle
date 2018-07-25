@@ -6,16 +6,16 @@ def GROUP_ID = GROUP_NAME
 def ARTIFACT_ID = ARTIFACT_NAME
 def VERSION = VERSION_NAME
 
-def getUser() {
-    return System.getenv("user")
+def getUserName() {
+    return hasProperty('USER') ? USER : System.getenv("user")
 }
 
 def getApiKey() {
-    return System.getenv("apikey")
+    return hasProperty('API_KEY') ? API_KEY : System.getenv("apikey")
 }
 
 def getPassPhrase() {
-    return System.getenv("passphrase")
+    return hasProperty('PASSPHRASE') ? PASSPHRASE : System.getenv("passphrase")
 }
 
 publishing {
@@ -29,7 +29,7 @@ publishing {
 }
 
 bintray {
-    user = getUser()
+    user = getUserName()
     key = getApiKey()
     publications = ['MyPublication']
     pkg {
