@@ -18,12 +18,19 @@ def getPassPhrase() {
     return hasProperty('PASSPHRASE') ? PASSPHRASE : System.getenv("passphrase")
 }
 
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
 publishing {
     publications {
         MyPublication(MavenPublication) {
             groupId GROUP_ID
             artifactId ARTIFACT_ID
             version VERSION
+            artifact sourcesJar
+            artifact("$buildDir/outputs/aar/app-release.aar")
         }
     }
 }
@@ -37,7 +44,7 @@ bintray {
         name = 'okhttpcookies'
         userOrg = user
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/AcnNuriSezgin/OkHttpCookies'
+        vcsUrl = 'https://github.com/AcnNuriSezgin/OkHttpCookies.git'
         publicDownloadNumbers = true
         publish = true
         version {
