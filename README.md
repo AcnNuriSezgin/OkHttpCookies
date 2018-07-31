@@ -4,7 +4,7 @@ Simple OkHttp Cookie Interceptor, can handle response and get cookies from respo
 ## Prerequisites
 First, dependency must be added to build.gradle file.
 ```groovy
-implementation 'nurisezgin.com.android.okhttpcookies:okhttpcookies:1.0.0'
+implementation 'nurisezgin.com.android.okhttpcookies:okhttpcookies:1.0.1'
 ```
 
 ## How To Use
