@@ -52,7 +52,7 @@ bintray {
     publications = ['MyPublication']
     pkg {
         repo = 'android-releases'
-        name = 'okhttpcookies'
+        name = 'cookies'
         userOrg = user
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/AcnNuriSezgin/OkHttpCookies.git'
